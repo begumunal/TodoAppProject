@@ -2,6 +2,7 @@
 //zamanda hazırlamış olduğumuz companentleri barındırır  
 
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -11,7 +12,8 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [//farklı bir angular modulü kullanılırsa bu import kısmına alınır 
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]//bu modül içerisindeki çalıştırılabilir ilk companent buraya yazılır. 

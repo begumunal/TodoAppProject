@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+//import{Model} from './model';
+import{Model, TodoItem} from './model';
 
 @Component({
   selector: 'app-root',//app companentinin nerede kullanılacağı
@@ -6,12 +8,25 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'todoApp';
-  user='Begüm';
-  items=[
-    {description:"Kahvaltı",action:"No"},
-    {description:"Spor",action:"No"},
-    {description:"Fatura",action:"No"},
-    {description:"Ders Çalış",action:"No"}
-  ];
+ 
+  model=new Model();
+
+  isDisplay=false;
+
+  getName(){
+    return this.model.user;
+  }
+
+  getItems(){
+    if(this.isDisplay){
+      return this.model.items;
+    }
+    return this.model.items.filter((item: { action: any; })=>!item.action);
+  }
+
+  addItem(value: string){
+    if(value!=""){
+      this.model.items.push(new TodoItem(value,false));
+    }
+  }
 }
